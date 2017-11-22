@@ -30,9 +30,7 @@ TBD:
 - [ ] retain current path when new pane is created
 - [ ] integration with clipboard
 - [ ] fix pane resizing
-- [ ] key binding to close all windows but current one
 - [ ] fix installation script to properly install TPM
-- [ ] change zoom action key binding to `prefix +`
 
 
 Installation
@@ -141,15 +139,23 @@ Let's go through them:
         <td>Swap current active pane with next one</td>
     </tr>
     <tr>
+        <td><code>&lt;prefix&gt; +</code></td>
+        <td>Toggle zoom for current pane</td>
+    </tr>
+    <tr>
         <td><code>&lt;prefix&gt; x</code></td>
         <td>Kill current pane</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; C-x</code></td>
-        <td>Kill current window (with confirmation)</td>
+        <td><code>&lt;prefix&gt; X</code></td>
+        <td>Kill current window</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; X</code></td>
+        <td><code>&lt;prefix&gt; C-x</code></td>
+        <td>Kill other windows but current one (with confirmation)</td>
+    </tr>
+    <tr>
+        <td><code>&lt;prefix&gt; C-q</code></td>
         <td>Kill current session (with confirmation)</td>
     </tr>
     <tr>
