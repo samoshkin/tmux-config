@@ -26,8 +26,6 @@ if [ -e "$HOME/.tmux.conf" ]; then
   printf "Found existing .tmux.conf in your \$HOME directory. Will create a backup at $HOME/.tmux.conf.bak\n"
 fi
 
-git submodule init;
-
 rsync -aq ./tmux/ "$HOME"/.tmux
 
 ln -sf --backup --suffix=.bak .tmux/tmux.conf "$HOME"/.tmux.conf;
