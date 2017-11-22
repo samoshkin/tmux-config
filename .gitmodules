@@ -1,3 +1,0 @@
-[submodule "plugins/sysstat"]
-	path = plugins/sysstat
-	url = git@github.com:samoshkin/tmux-plugin-sysstat.git
