@@ -30,8 +30,8 @@ rsync -aq ./tmux/ "$HOME"/.tmux
 
 ln -sf --backup --suffix=.bak .tmux/tmux.conf "$HOME"/.tmux.conf;
 
-# BUG: Fix for fresh installation
-"$HOME"/.tmux/plugins/tpm/bin/install_plugins
+# BUG: Fix TPM and tmux plugins for fresh installation
+# "$HOME"/.tmux/plugins/tpm/bin/install_plugins
 
 printf "$(tput setaf 2)OK:$(tput sgr0) Completed\n"
 

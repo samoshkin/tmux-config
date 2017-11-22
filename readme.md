@@ -1,6 +1,6 @@
-Tmux 2 Configuration
+Tmux Configuration
 =====================
-Tmux configuration, that supercharges your "tmux" terminal environment, and make you feel like a boss.
+Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) to build cozy and cool terminal environment.
 
 ![intro](https://user-images.githubusercontent.com/768858/33152741-ec5f1270-cfe6-11e7-9570-6d17330a83aa.gif)
 
@@ -26,7 +26,7 @@ Features
 - merge current session with existing one (move all windows)
 - integration with 3rd party plugins: [tmux-sidebar](https://github.com/tmux-plugins/tmux-sidebar), [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat), [tmux-open](https://github.com/tmux-plugins/tmux-open), [tmux-plugin-sysstat](https://github.com/samoshkin/tmux-plugin-sysstat)
 
-TBD:
+**TBD**:
 - [ ] retain current path when new pane is created
 - [ ] integration with clipboard
 - [ ] fix pane resizing
@@ -35,14 +35,18 @@ TBD:
 
 Installation
 -------------
-The prerequisite is to install tmux >= "2.4".
+The prerequisite is installed tmux >= "2.4" and [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
 ```
 $ git clone https://github.com/samoshkin/tmux-config.git
 $ ./tmux-config/install.sh
 ```
 
-Installation script will copy files to `~/.tmux` directory, symlink main `~/.tmux` config file, install Tmux plugin manager (if not already installed), install configured tmux plugins. If you already have existing `~/tmux.conf`, backup will be created.
+Installation script will copy files to `~/.tmux` directory, symlink main `~/.tmux` config file. If you already have existing `~/tmux.conf`, backup will be created.
+
+Note, that after you launch tmux, plugins needs to be installed. Hit `C-a Shift-i` keybinding to install all tmux plugins.
+
+- [ ] **TODO:** automate TPM and tmux plugin installation
 
 
 General settings
