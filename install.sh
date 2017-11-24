@@ -39,14 +39,3 @@ tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.tmux/plugins"
 tmux kill-session -t __noop >/dev/null 2>&1 || true
 
 printf "$(tput setaf 2)OK:$(tput sgr0) Completed\n"
-
-
-
-
-
-
-
-
-
-
-
