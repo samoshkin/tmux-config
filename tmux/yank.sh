@@ -7,9 +7,7 @@ is_app_installed() {
 }
 
 # get data either form stdin or from file
-# 'echo -n' to strip any trailing new lines, so when we paste in command prompt
-# it won't be executed immediately
-buf=$(cat "$@" | xargs echo -n)
+buf=$(cat "$@")
 
 copy_backend_remote_tunnel_port=$(tmux show-option -gvq "@copy_backend_remote_tunnel_port")
 copy_use_osc52_fallback=$(tmux show-option -gvq "@copy_use_osc52_fallback")
