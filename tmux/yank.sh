@@ -28,7 +28,7 @@ fi
 
 # if copy backend is resolved, copy and exit
 if [ -n "$copy_backend" ]; then
-  printf "$buf" | eval "$copy_backend"
+  printf "%s" "$buf" | eval "$copy_backend"
   exit;
 fi
 
