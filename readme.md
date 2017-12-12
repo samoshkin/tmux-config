@@ -2,6 +2,18 @@ Tmux Configuration
 =====================
 Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) and builds cozy and cool terminal environment.
 
+Contains minor updates by [Rafal Lukawiecki](https://github.com/rafallukawiecki) to the original created by [Alexey Samoshkin](https://github.com/samoshkin):
+ - Uses Solarized Dark palette colour names and choices.
+ - Prefers accent foreground colours to accented backgrounds to reduce contrasts jumps and permanently-on bright screen elements.
+ - F8 instead of F12 for 'Off' mode as F12 is bound to 'Dashboard' on some Apple MBPs (with TouchBar).
+ - European date format "Day Month" instead of "Month Day".
+ - duckduckgo.com instead of google.com as default search engine.
+ - Numeric IP (8.8.8.8) instead of FQDN as ping target for tmux-online-status.
+ - Original tmux wheel scrol speed of 5 lines, instead of 2.
+ - Binds C-a a for 'jump-to-line-start' command line editing.
+
+The remainder of the readme is from the upstream version of the config.
+
 ![intro](https://user-images.githubusercontent.com/768858/33152741-ec5f1270-cfe6-11e7-9570-6d17330a83aa.gif)
 
 Table of contents
@@ -52,7 +64,7 @@ Installation
 -------------
 Prerequisites:
 - tmux >= "v2.4"
-- OSX, Linux (tested on Ubuntu 14 and CentOS7)
+- OSX, Linux (tested on Ubuntu 14 and CentOS7), FreeBSD (tested on 11.1)
 
 Personally, I use it on OSX 10.11.5 El Capitan through iTerm2.
 
@@ -281,7 +293,7 @@ If you are an iTerm2 user, third column describes the keybinding of similar  "ac
         <td>-</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; F12</code></td>
+        <td><code>&lt;prefix&gt; F8</code></td>
         <td>Switch off all key binding and prefix hanling in current window. See "Nested sessions" paragraph for more info</td>
         <td>-</td>
     </tr>
@@ -330,7 +342,7 @@ Second attempt to tackle this issue, is to [setup 2 individual prefixes](https:/
 
 And finally accepted solution, turn off all keybindings and key prefix handling in outer session, when working with inner one. This way, outer session just sits aside, without interfering keystrokes passed to inner session. Credits to [http://stahlke.org/dan/tmux-nested/](http://stahlke.org/dan/tmux-nested/) and this [Github issue](https://github.com/tmux/tmux/issues/237)
 
-So, how it works. When in outer session, simply press `F12` to toggle off all keybindings handling in outer session. Now work with inner session using the same keybinding scheme and same keyprefix. Press `F12` to turn on outer session back.
+So, how it works. When in outer session, simply press `F8` to toggle off all keybindings handling in outer session. Now work with inner session using the same keybinding scheme and same keyprefix. Press `F8` to turn on outer session back.
 
 ![nested sessions](https://user-images.githubusercontent.com/768858/33151636-84a0bab2-cfe1-11e7-9d5d-412525689c9b.gif)
 
@@ -354,7 +366,6 @@ There is a root keybinding to enter Copy mode: `M-Up`. Once in copy mode, you ha
 - scroll by line: `M-Up`, `M-down`
 - scroll by half screen: `M-PageUp`, `M-PageDown`
 - scroll by whole screen: `PageUp`, `PageDown`
-- scroll by mouse wheel, scroll step is changed from `5` lines to `2`
 
 `Space` starts selection, `Enter` copies selection and exits copy mode. List all items in copy buffer using `prefix C-p`, and paste most recent item from buffer using `prexix p`.
 
