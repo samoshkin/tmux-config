@@ -52,7 +52,7 @@ Installation
 -------------
 Prerequisites:
 - tmux >= "v2.4"
-- OSX, Linux (tested on Ubuntu 14 and CentOS7)
+- OSX, Linux (tested on Ubuntu 14 and CentOS7), FreeBSD (tested on 11.1)
 
 Personally, I use it on OSX 10.11.5 El Capitan through iTerm2.
 
