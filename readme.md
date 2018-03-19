@@ -99,7 +99,7 @@ Key bindings
 -----------
 So `~/.tmux.conf` overrides default key bindings for many action, to make them more reasonable, easy to recall and comforable to type.
 
-Let's go through them. 
+Let's go through them.
 
 If you are an iTerm2 user, third column describes the keybinding of similar  "action" in iTerm2. It's possible to reuse very same keys you already get used to and tell iTerm2 to execute analogous tmux actions. See [iTerm2 and tmux integration](#iterm2-and-tmux-integration) section below.
 
@@ -146,14 +146,14 @@ If you are an iTerm2 user, third column describes the keybinding of similar  "ac
         <td>⌘D</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; &lt;</code></td>
+        <td><code>&lt;prefix&gt; ]</code></td>
         <td>Select next pane</td>
-        <td>⌘[</td>
+        <td>⌘]</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; &gt;</code></td>
+        <td><code>&lt;prefix&gt; [</code></td>
         <td>Select previous pane</td>
-        <td>⌘]</td>
+        <td>⌘[</td>
     </tr>
     <tr>
         <td><code>&lt;prefix&gt; ←</code></td>
@@ -196,12 +196,12 @@ If you are an iTerm2 user, third column describes the keybinding of similar  "ac
         <td>^⌘↓</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; &gt;</code></td>
+        <td><code>&lt;prefix&gt; C-]</code></td>
         <td>Move to next window</td>
         <td>⌘⇧]</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; &lt;</code></td>
+        <td><code>&lt;prefix&gt; C-[</code></td>
         <td>Move to previous window</td>
         <td>⌘⇧[</td>
     </tr>
@@ -396,7 +396,7 @@ Second workaround is really involved and consists of [local network listener and
 - Buffer will be sent thru SSH remote tunnel from port `2222` on remote machine to port `3333` on local machine.
 - Setup a service on local machine (systemd service unit with socket activation), which listens on network socket on port `3333`, and pipes any input to `pbcopy` command (or `xsel`, `xclip`).
 
-This tmux-config does its best to integrate with system clipboard, trying all solutions above in order, and falling back to OSC 52 ANSI escape sequences in case of failure. 
+This tmux-config does its best to integrate with system clipboard, trying all solutions above in order, and falling back to OSC 52 ANSI escape sequences in case of failure.
 
 On OSX you might need to install `reattach-to-user-namespace` wrapper: `brew install reattach-to-user-namespace`, and make sure OSC 52 sequence handling is turned on in iTerm. (Preferences -> General -> Applications in Terminal may access clipboard).
 
