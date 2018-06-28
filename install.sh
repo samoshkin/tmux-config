@@ -27,6 +27,10 @@ if [ -e "$HOME/.tmux.conf" ]; then
   printf "Found existing .tmux.conf in your \$HOME directory. Will create a backup at $HOME/.tmux.conf.bak\n"
 fi
 
+if [ ! -e "$HOME/.tmux.conf.local" ]; then
+  touch $HOME/.tmux.conf.local
+fi
+
 cp -f "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak" 2>/dev/null || true
 cp -a ./tmux/. "$HOME"/.tmux/
 ln -sf .tmux/tmux.conf "$HOME"/.tmux.conf;

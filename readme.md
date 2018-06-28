@@ -4,6 +4,8 @@ Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) and b
 
 ![intro](https://user-images.githubusercontent.com/768858/33152741-ec5f1270-cfe6-11e7-9570-6d17330a83aa.gif)
 
+**Note:** Put local changes in `$HOME/.tmux.conf.local` to add or to override settings in `$HOME/.tmux.conf`
+
 Table of contents
 -----------------
 

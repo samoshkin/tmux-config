@@ -1,0 +1,4 @@
+# Change prefix key back to C-b, I'm use to using that
+unbind C-a
+set -g prefix C-b
+
