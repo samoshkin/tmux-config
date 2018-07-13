@@ -25,4 +25,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-
+# Log files and swap
+*.log
+*.swp
