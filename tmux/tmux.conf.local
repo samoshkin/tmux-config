@@ -1,0 +1,40 @@
+# Change prefix key back to C-b, I'm use to using that
+unbind C-a
+set -g prefix C-b
+
+# split windows with a pipe and dash
+bind - splitw
+bind | splitw -h
+
+# Jump to previous used tab (tmux-config sets this to Tab, which should be sufficient)
+#bind-key C-l last-window
+
+# Vi copypaste mode (tmux-config already sets this)
+#set-window-option -g mode-keys vi
+
+# Resize panes by repeatably tapping
+bind-key -r J resize-pane -D 3
+bind-key -r H resize-pane -L 3
+bind-key -r K resize-pane -U 3
+bind-key -r L resize-pane -R 3
+
+# hjkl pane traversal
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# I never have any luck with mouse mode enabled
+set -g mouse off
+
+# Color
+set -g default-terminal "screen-256color"
+
+bind Escape copy-mode
+
+# http://superuser.com/questions/600286/move-pane-to-a-new-window-in-tmux
+# Move pane to new window (break-pane) or move window to pane (join-pane)
+bind-key C-j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+bind-key C-s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+bind-key b break-pane
+
