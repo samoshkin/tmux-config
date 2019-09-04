@@ -379,7 +379,7 @@ This is one of the major limitations of tmux, that you might just decide to give
 
 All solutions above are suitable for sharing tmux buffer with system clipboard for local machine scenario. They still does not address remote session scenarios. What we need is some way to transport buffer from remote machine to the clipboard on the local machine, bypassing remote system clipboard.
 
-There are 2 workarounds to address remote scenarios.
+There are 3 workarounds to address remote scenarios.
 
 Use **[ANSI OSC 52](https://en.wikipedia.org/wiki/ANSI_escape_code#Escape_sequences)** escape [sequence](https://blog.vucica.net/2017/07/what-are-osc-terminal-control-sequences-escape-codes.html) to talk to controlling/parent terminal and pass buffer on local machine. Terminal should properly undestand and handle OSC 52. Currently, only iTerm2 and XTerm support it. OSX Terminal, Gnome Terminal, Terminator do not.
 
@@ -403,6 +403,13 @@ On OSX you might need to install `reattach-to-user-namespace` wrapper: `brew ins
 On Linux, make sure `xclip` or `xsel` is installed. For remote scenarios, you would still need to setup network listener and use SSH remote tunneling, unless you terminal emulators supports OSC 52 sequences.
 
 
+Third workaround is relatively easy:
+
+```
+tmux save-buffer saved-buffer.txt
+```
+
+Which saves the buffer you selected into `saved-buffer.txt` text file which you can rsync or croc over to wherever you want.
 
 
 
