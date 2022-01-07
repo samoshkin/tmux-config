@@ -1,4 +1,4 @@
-Tmux Configuration
+Tmux Configuration [Tweaked to work with tmux >=3 and tested in ubuntu 20.04/21.10]
 =====================
 Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) and builds cozy and cool terminal environment.
 
@@ -61,7 +61,7 @@ On OSX you can install latest 2.6 version with `brew install tmux`. On Linux it'
 
 To install tmux-config:
 ```
-$ git clone https://github.com/samoshkin/tmux-config.git
+$ git clone https://github.com/frankperrakis/tmux-config.git
 $ ./tmux-config/install.sh
 ```
 
