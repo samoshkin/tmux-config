@@ -1,4 +1,4 @@
-Tmux Configuration [Tweaked to work with tmux >=3 and tested in ubuntu 20.04/21.10]
+Tmux Configuration [Tweaked to work with tmux >=3 and tested in ubuntu 22.04/ Arch linux / Debian Testing]
 =====================
 Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) and builds cozy and cool terminal environment.
 
