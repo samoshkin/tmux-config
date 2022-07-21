@@ -1,26 +1,26 @@
-FROM debian:stretch-slim
+FROM ubuntu:22.04
 
 RUN apt-get update  \
-  && apt-get install -y --no-install-recommends \
+  && apt-get install -qy --no-install-recommends \
     ca-certificates \
     fontconfig \
     git \
-    gcc \
     iputils-ping \
     libevent-dev \
     libncurses-dev \
     locales \
-    make \
     procps \
     wget \
-  && wget -O - https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6.tar.gz | tar xzf - \
-  && cd tmux-2.6 \
-  && LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local \
-  && make \
-  && make install \
-  && cd .. \
-  && rm -rf tmux-2.6 \
-  && apt-get purge -y gcc make \
+    curl \
+    tmux \
+    # added to test vim integration
+    neovim \
+    # needed for network addon
+    gawk \ 
+    net-tools \
+    coreutils \
+    # needed for weather adddon
+    sed \
   && apt-get -y autoremove \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -37,10 +37,8 @@ RUN mkdir -p $HOME/.fonts $HOME/.config/fontconfig/conf.d \
 
 WORKDIR /root
 
-RUN git clone https://github.com/samoshkin/tmux-config \
+RUN git clone https://github.com/frankperrakis/tmux-config.git \
   && ./tmux-config/install.sh \
   && rm -rf ./tmux-config
 
 ENV TERM=xterm-256color
-
-

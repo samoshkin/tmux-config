@@ -17,6 +17,7 @@ Table of contents
 1. [Clipboard integration](#clipboard-integration)
 1. [Themes and customization](#themes-and-customization)
 1. [iTerm2 and tmux integration](#iterm2-and-tmux-integration)
+1. [Test using Docker](#docker-test)
 
 Features
 ---------
@@ -80,7 +81,7 @@ tmux new
 
 General settings
 ----------------
-Windows and pane indexing starts from `1` rather than `0`. Scrollback history limit is set to `20000`. Automatic window renameing is turned off. Aggresive resizing is on. Message line display timeout is `1.5s`. Mouse support in `on`.
+Windows and pane indexing starts from `1` rather than `0`. Scrollback history limit is set to `200000`. Automatic window renameing is turned off. Aggresive resizing is on. Message line display timeout is `1.5s`. Mouse support in `on`.
 
 256 color palette support is turned on, make sure that your parent terminal is configured propertly. See [here](https://unix.stackexchange.com/questions/1045/getting-256-colors-to-work-in-tmux) and [there](https://github.com/tmux/tmux/wiki/FAQ)
 
@@ -110,8 +111,8 @@ If you are an iTerm2 user, third column describes the keybinding of similar  "ac
         <td><b>iTerm2 key</b></td>
     </tr>
     <tr>
-        <td nowrap><code>C-a</code></td>
-        <td>Default prefix, used instead of "C-b". Same prefix is used in screen program, and it's easy to type. The only drawback of "C-a" is that underlying shell does not receive the keystroke to move to the beginning of the line.
+        <td nowrap><code>C-z</code></td>
+        <td>Default prefix, used instead of "C-b". Same prefix is used in screen program, and it's easy to type
         </td>
         <td>-</td>
     </tr>
@@ -281,8 +282,19 @@ If you are an iTerm2 user, third column describes the keybinding of similar  "ac
         <td>-</td>
     </tr>
     <tr>
-        <td><code>&lt;prefix&gt; F12</code></td>
+        <td><code>&lt;prefix&gt; F10</code></td>
         <td>Switch off all key binding and prefix hanling in current window. See "Nested sessions" paragraph for more info</td>
+        <td>-</td>
+    </tr>
+        <tr>
+        <td><code>&lt;prefix&gt; SS</code></td>
+        <td>Save session using tmux resurrect addon</td>
+        <td>-</td>
+    </tr>
+    </tr>
+        <tr>
+        <td><code>&lt;prefix&gt; RR</code></td>
+        <td>Reload saved session using tmux resurrect addon</td>
         <td>-</td>
     </tr>
 </table>
@@ -330,7 +342,7 @@ Second attempt to tackle this issue, is to [setup 2 individual prefixes](https:/
 
 And finally accepted solution, turn off all keybindings and key prefix handling in outer session, when working with inner one. This way, outer session just sits aside, without interfering keystrokes passed to inner session. Credits to [http://stahlke.org/dan/tmux-nested/](http://stahlke.org/dan/tmux-nested/) and this [Github issue](https://github.com/tmux/tmux/issues/237)
 
-So, how it works. When in outer session, simply press `F12` to toggle off all keybindings handling in outer session. Now work with inner session using the same keybinding scheme and same keyprefix. Press `F12` to turn on outer session back.
+So, how it works. When in outer session, simply press `F10` to toggle off all keybindings handling in outer session. Now work with inner session using the same keybinding scheme and same keyprefix. Press `F9` to turn on outer session back.
 
 ![nested sessions](https://user-images.githubusercontent.com/768858/33151636-84a0bab2-cfe1-11e7-9d5d-412525689c9b.gif)
 
@@ -474,3 +486,11 @@ As additional step, you can setup this new iTerm profile as default one, and tel
 You can then go full screen in iTerm, so iTerm tabs and frame do not distract you (anyway now you're using iTerm just as a tunnel to your tmux, everything else happens inside tmux).
 
 ![full screen mode](https://user-images.githubusercontent.com/768858/33185303-54fa0378-d08a-11e7-8fd3-068f0af712c7.png)
+
+Docker Test
+-----------
+Just run this to test on your local pc without any changes (Requires [Docker](https://docs.docker.com/engine/install/) to be installed)
+```
+docker build -t tmux-test .
+docker run -it tmux-test
+```
