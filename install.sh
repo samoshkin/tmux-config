@@ -21,17 +21,19 @@ if ! is_app_installed tmux; then
 fi
 
 if [ ! -e "$XDG_CONFIG_HOME/.config/tmux/plugins/tpm" ]; then
-    printf "WARNING: Cannot found TPM (Tmux Plugin Manager) \
+    printf "WARNING: Cannot find TPM (Tmux Plugin Manager) \
         at default location: \$HOME/config/tmux/plugins/tpm.\n"
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
+# TODO: Add check to mitigate two tmux configs
 if [ -e "$HOME/.tmux.conf" ]; then
     printf "Found existing .tmux.conf in your \$XGD_CONFIG_HOME directory.\
         Will create a backup at $XDG_CONFIG_HOME/tmux/tmux.conf.bak\n"
     cp -f "$HOME/.tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf.bak" 2>/dev/null || true
 fi
 
+# TODO: Move over to GNU stow and (git)ignore the plugins, or move tpm into seperate folder, e.g. in $XDG_DATA_HOME
 cp -a ./tmux/. "$XDG_CONFIG_HOME"/tmux/
 
 # Install TPM plugins.
@@ -44,4 +46,4 @@ tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins"
 tmux kill-session -t __noop >/dev/null 2>&1 || true
 
 printf "OK: Completed\n"
-printf "Please add an alias to TMUX >= 3.2: alias tmux='tmux -f ~/.config/tmux/tmux.conf'\n"
+printf "Please add an alias to TMUX <= 3.2: alias tmux='tmux -f ~/.config/tmux/tmux.conf'\n"

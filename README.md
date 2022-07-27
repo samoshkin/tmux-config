@@ -48,6 +48,7 @@ Tmux configuration, that supercharges your [tmux](https://tmux.github.io/) and b
 ## TODO
 
 - [x] move files into XDG-CONFIG with alias `tmux -f ~/.config/tmux/tmux.conf`
+- [ ] add vim like navigation for less mental overhead
 
 ## Installation
 
