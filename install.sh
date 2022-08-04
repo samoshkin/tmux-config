@@ -20,10 +20,10 @@ if ! is_app_installed tmux; then
     exit 1
 fi
 
-if [ ! -e "$XDG_CONFIG_HOME/.config/tmux/plugins/tpm" ]; then
+if [ ! -e "$XDG_DATA_HOME/tmux/plugins/tpm" ]; then
     printf "WARNING: Cannot find TPM (Tmux Plugin Manager) \
-        at default location: \$HOME/config/tmux/plugins/tpm.\n"
-    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+        at default location: \$XDG_DATA_HOME/tmux/plugins/tpm.\n"
+    git clone https://github.com/tmux-plugins/tpm $XDG_DATA_HOME/tmux/plugins/tpm
 fi
 
 # TODO: Add check to mitigate two tmux configs
@@ -33,16 +33,14 @@ if [ -e "$HOME/.tmux.conf" ]; then
     cp -f "$HOME/.tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf.bak" 2>/dev/null || true
 fi
 
-# TODO: Move over to GNU stow and (git)ignore the plugins, or move tpm into seperate folder, e.g. in $XDG_DATA_HOME
-cp -a ./tmux/. "$XDG_CONFIG_HOME"/tmux/
+stow -vt ~ tmux
 
 # Install TPM plugins.
 # TPM requires running tmux server, as soon as `tmux start-server` does not work
 # create dump __noop session in detached mode, and kill it when plugins are installed
 printf "Install TPM plugins\n"
 tmux new -d -s __noop >/dev/null 2>&1 || true
-tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins"
-"$XDG_CONFIG_HOME"/tmux/plugins/tpm/bin/install_plugins || true
+"$XDG_DATA_HOME"/tmux/plugins/tpm/bin/install_plugins || true
 tmux kill-session -t __noop >/dev/null 2>&1 || true
 
 printf "OK: Completed\n"
