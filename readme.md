@@ -110,7 +110,7 @@ xterm-256color
 # jump into a tmux session
 $ tmux new
 $ echo $TERM
-screen-256color
+tmux-256color
 ```
 
 Key bindings
